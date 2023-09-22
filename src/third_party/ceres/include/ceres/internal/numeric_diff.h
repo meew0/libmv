@@ -38,7 +38,10 @@
 #include <cstring>
 
 #include "Eigen/Dense"
-#include "Eigen/StdVector"
+
+// https://github.com/strands-project/v4r/issues/39#issuecomment-173170796
+// #include "Eigen/StdVector"
+
 #include "ceres/cost_function.h"
 #include "ceres/internal/fixed_array.h"
 #include "ceres/internal/scoped_ptr.h"

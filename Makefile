@@ -8,9 +8,14 @@ release :
 	mkdir -p bin-opt
 	cd bin-opt && cmake -DCMAKE_BUILD_TYPE=Release ../src && make -j8
 
+static :
+	mkdir -p bin-static
+	cd bin-static && cmake -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release ../src && make -j8
+
 clean :
 	rm -rf bin-opt
 	rm -rf bin-dbg
+	rm -rf bin-static
 
 test : debug
 	cd bin-dbg && ctest

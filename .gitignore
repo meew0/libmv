@@ -1,6 +1,7 @@
 .*.swp
 bin-dbg
 bin-opt
+bin-static
 src/libmv/tools/revision.h
 doc/html/
 Makefile

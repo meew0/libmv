@@ -2,15 +2,15 @@ all : release
 
 debug :
 	mkdir -p bin-dbg
-	cd bin-dbg && cmake -DCMAKE_BUILD_TYPE=Debug ../src && make
+	cd bin-dbg && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Debug ../src && make
 
 release :
 	mkdir -p bin-opt
-	cd bin-opt && cmake -DCMAKE_BUILD_TYPE=Release ../src && make -j8
+	cd bin-opt && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release ../src && make -j8
 
 static :
 	mkdir -p bin-static
-	cd bin-static && cmake -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release ../src && make -j8
+	cd bin-static && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release ../src && make -j8
 
 clean :
 	rm -rf bin-opt

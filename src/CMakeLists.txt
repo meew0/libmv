@@ -20,11 +20,6 @@
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.2)
 
-IF (COMMAND cmake_policy)
-  cmake_policy(SET CMP0003 OLD)
-  cmake_policy(SET CMP0005 OLD)
-ENDIF (COMMAND cmake_policy)
-
 PROJECT(LIBMV C CXX)
 
 ENABLE_TESTING()

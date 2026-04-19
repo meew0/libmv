@@ -1,6 +1,5 @@
 .*.swp
 bin-*
-src/libmv/tools/revision.h
 doc/html/
 Makefile
 build*/

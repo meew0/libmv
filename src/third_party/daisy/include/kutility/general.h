@@ -41,14 +41,14 @@
 #ifndef KUTILITY_GENERAL_H
 #define KUTILITY_GENERAL_H
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(_WIN32)
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #endif
 
-#if defined(WIN32)
+#if defined(WIN32) || defined(_WIN32)
 #define strncasecmp _strnicmp
 #pragma warning( disable : 4244 4305 )
 #endif

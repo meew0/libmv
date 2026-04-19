@@ -60,6 +60,10 @@ IF(MSVC)
   SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${LIBMV_LIBRARY_DIR})
   SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG   ${LIBMV_BINARY_DIR})
   SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${LIBMV_BINARY_DIR})
+  # VS 2022 17.11 STL bug: <xlocnum> uses PTRDIFF_MAX. msinttypes/stdint.h (found first in include
+  # path) guards limit macros behind __STDC_LIMIT_MACROS in C++ mode. Define it so PTRDIFF_MAX
+  # is visible. Use CMAKE_CXX_FLAGS (not ADD_COMPILE_OPTIONS) to avoid affecting C-only projects.
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /D__STDC_LIMIT_MACROS")
 ENDIF(MSVC)
 
 OPTION(WITH_SYSTEM_CERES "Use the system Ceres library instead of bundled one" OFF)

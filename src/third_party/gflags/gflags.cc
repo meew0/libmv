@@ -98,6 +98,9 @@
 #elif defined(HAVE_SHLWAPI_H)
 #  include <shlwapi.h>
 #endif
+#ifdef _MSC_VER
+#  define strcasecmp _stricmp
+#endif
 #include <stdarg.h> // For va_list and related operations
 #include <stdio.h>
 #include <string.h>

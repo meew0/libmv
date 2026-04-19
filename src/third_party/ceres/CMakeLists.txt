@@ -370,6 +370,10 @@ if (MINIGLOG)
   message("-- Compiling minimal glog substitute into Ceres.")
   set(GLOG_INCLUDE_DIRS internal/ceres/miniglog)
   message("-- Using minimal glog substitute (include): ${GLOG_INCLUDE_DIRS}")
+  # Suppress INFO/VLOG output from miniglog; WARNING, ERROR, and FATAL still
+  # pass through. Without this, every LG/VLOG(1) call unconditionally writes to
+  # std::cerr because miniglog has no runtime verbosity control.
+  add_definitions(-DMAX_LOG_LEVEL=-1)
 
   # Mark as advanced (remove from default GUI view) the glog search
   # variables in case user disables MINIGLOG, FindGlog did not find it, so
